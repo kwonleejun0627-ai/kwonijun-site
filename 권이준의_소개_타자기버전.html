@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>권이준의 소개</title>
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#111,#222);
+    font-family:'Malgun Gothic',sans-serif;
+    color:white;
+    text-align:center;
+}
+.container{max-width:800px;}
+h1{font-size:70px;margin-bottom:40px;}
+button{
+    background:#0099ff;
+    color:white;
+    border:none;
+    padding:18px 40px;
+    font-size:24px;
+    border-radius:50px;
+    cursor:pointer;
+    box-shadow:0 0 15px #0099ff,0 0 30px #0099ff,0 0 45px #0099ff;
+}
+#info{
+    display:none;
+    margin-top:40px;
+    background:rgba(255,255,255,0.1);
+    padding:25px;
+    border-radius:20px;
+    font-size:22px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>권이준의 소개</h1>
+
+    <button onclick="showInfo()">알아보기</button>
+
+    <div id="info">
+        <h2>안녕하세요!</h2>
+        <p id="typing"></p>
+    </div>
+</div>
+
+<script>
+let started = false;
+
+function showInfo(){
+    if(started) return;
+    started = true;
+
+    document.getElementById("info").style.display = "block";
+
+    const text = "저는 권이준입니다. 초등학생입니다. 로블록스 게임 제작을 좋아합니다. 저는 태권도 국가대표가 되는 것이 꿈입니다.";
+
+    let i = 0;
+    const typing = document.getElementById("typing");
+
+    const timer = setInterval(() => {
+        typing.innerHTML += text.charAt(i);
+        i++;
+
+        if(i >= text.length){
+            clearInterval(timer);
+        }
+    }, 80);
+}
+</script>
+
+</body>
+</html>
